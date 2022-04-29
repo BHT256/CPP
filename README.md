@@ -1,2 +1,1 @@
-# CPP
 Only for learning
