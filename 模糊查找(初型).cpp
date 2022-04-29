@@ -3,43 +3,43 @@
 using namespace std;
 int main()
 {
-    char str[] = "programming charm\0"; //Ô´×Ö·û´®
-    printf("ÊäÈëÒªËÑË÷µÄÄ³¸ö×Ö·û:\n");
-    fflush(stdin); //ÖØË¢ĞÂ»º´æÇø È·±£ÔÚÏÂÒ»´ÎÊäÈëÊ±²»»áÓĞ¶îÍâµÄ×Ö·û½øÈë±ê×¼ÊäÈëÁ÷ÖĞ
-    char str2[20];              //Òª²éÕÒµÄ×Ö·û´®
+    char str[] = "programming charm\0"; //æºå­—ç¬¦ä¸²
+    cout << "è¾“å…¥è¦æœç´¢çš„æŸä¸ªå­—ç¬¦:" << endl;
+    fflush(stdin); //é‡åˆ·æ–°ç¼“å­˜åŒº ç¡®ä¿åœ¨ä¸‹ä¸€æ¬¡è¾“å…¥æ—¶ä¸ä¼šæœ‰é¢å¤–çš„å­—ç¬¦è¿›å…¥æ ‡å‡†è¾“å…¥æµä¸­
+    char str2[20];              //è¦æŸ¥æ‰¾çš„å­—ç¬¦ä¸²
     fgets(str2, 19, stdin);
     char* res;
-    res = (char*)memchr(str, str2[0], strlen(str));  //¸ù¾İÒª²éÕÒµÄ×Ö·û´®µÚÒ»¸ö×Ö·û£¬ÇĞ¸îÔ´×Ö·û´®
+    res = (char*)memchr(str, str2[0], strlen(str));  //æ ¹æ®è¦æŸ¥æ‰¾çš„å­—ç¬¦ä¸²ç¬¬ä¸€ä¸ªå­—ç¬¦ï¼Œåˆ‡å‰²æºå­—ç¬¦ä¸²
     if (res == NULL)
     {
-        printf("ÕÒ²»µ½\n");
+        cout << "æ‰¾ä¸åˆ°" << endl;
         return 0;
     }
     int n;
     while (1)
     {
-        n = memcmp(res, str2, strlen(str2) - 1); //±È½Ï
+        n = memcmp(res, str2, strlen(str2) - 1); //æ¯”è¾ƒ
         if (n != 0)
         {
-            if (strlen(res) <= strlen(str2))  //ÇĞ¸î³öµÄ×Ö·û´®Ğ¡ÓÚÒª²éÕÒ×Ö·û´®µÄ³¤¶È
+            if (strlen(res) <= strlen(str2))  //åˆ‡å‰²å‡ºçš„å­—ç¬¦ä¸²å°äºè¦æŸ¥æ‰¾å­—ç¬¦ä¸²çš„é•¿åº¦
             {
-                printf("ÕÒ²»µ½\n");
+                cout << "æ‰¾ä¸åˆ°" << endl;
                 return 0;
             }
             else
             {
-                //¸ù¾İÒª²éÕÒµÄµÚÒ»¸ö×Ö·û¼ÌĞøÇĞ¸î
+                //æ ¹æ®è¦æŸ¥æ‰¾çš„ç¬¬ä¸€ä¸ªå­—ç¬¦ç»§ç»­åˆ‡å‰²
                 res = (char*)memchr(res + 1, str2[0], strlen(res));
                 if (res == NULL)
                 {
-                    printf("ÕÒ²»µ½\n");
+                    cout << "æ‰¾ä¸åˆ°" << endl;
                     return 0;
                 }
             }
         }
         else
-        { //Èç¹ûn = 0£¬ÕÒµ½
-            printf("ÒÑÕÒµ½%s\n", str2);
+        { //å¦‚æœn = 0ï¼Œæ‰¾åˆ°
+            cout << "å·²ç»æ‰¾åˆ°" <<str2<< endl;
             return 0;
         }
     }
